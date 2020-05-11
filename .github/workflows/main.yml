@@ -29,9 +29,10 @@ jobs:
       - name: check variables
         shell: powershell
         run: |
-          ls "C:\Program Files (x86)\Windows Kits\10\bin"
-          Get-Content "C:\Program Files (x86)\Windows Kits\10\SDKManifest.xml"
-          $env:PATH
+          cd "C:\Program Files (x86)\Windows Kits\"
+          git init .
+          git add .
+          git commit -m "initial commit"
           
       - name: Workaround - Install Windows 10 14393 SDK
         shell: powershell
@@ -42,9 +43,9 @@ jobs:
       - name: check variables2 
         shell: powershell
         run: |
-          ls "C:\Program Files (x86)\Windows Kits\10\bin"
-          Get-Content "C:\Program Files (x86)\Windows Kits\10\SDKManifest.xml"
-          $env:PATH
+          git add .
+          git commit -m "second commit"
+          git diff
 
       - name: Restore NuGet Packages
         run: nuget restore GHA-Repro-14393.sln
