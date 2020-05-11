@@ -39,7 +39,7 @@ jobs:
           Invoke-WebRequest -Method Get -Uri https://go.microsoft.com/fwlink/p/?LinkId=838916 -OutFile sdksetup.exe -UseBasicParsing
           Start-Process -Wait sdksetup.exe -ArgumentList "/q", "/norestart", "/ceip off", "/features OptionId.WindowsSoftwareDevelopmentKit"
           
-      - name: check variables2
+      - name: check variables2 
         shell: powershell
         run: |
           ls "C:\Program Files (x86)\Windows Kits\10\bin"
